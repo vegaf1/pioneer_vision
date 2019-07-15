@@ -1,0 +1,4 @@
+string name 
+---
+int64 count 
+darknet_ros_msgs/BoundingBoxArray boxes

@@ -6,7 +6,7 @@ from sensor_msgs.msg import LaserScan
 import math
 from visualization_msgs.msg import Marker 
 import numpy as np 
-from rplidar_ros.srv import laser
+from laser.srv import *
 
 global value, distance
 

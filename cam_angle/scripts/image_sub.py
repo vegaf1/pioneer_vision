@@ -49,6 +49,7 @@ class image_converter:
 def main(args):
   ic = image_converter()
   rospy.init_node('image_converter', anonymous=True)
+  #pixel_server()
   try:
     rospy.spin()
   except KeyboardInterrupt:

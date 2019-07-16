@@ -6,6 +6,7 @@
 #include "cam_angle/pixel.h"
 #include <iostream>
 
+
 #include <cstdlib>
 
 using namespace std;
@@ -13,34 +14,39 @@ using namespace std;
 //darknet_ros_msgs::BoundingBoxes globalboxes;
 int i,c;
 char ch;
-int size, actual_size;
+int size, actual_size, new_size;
 int xmax,xmin,ymax,ymin, xavg, yavg;
 ros::ServiceClient *clientPtr; //pointer for a client
 
-
 void boxesCallback(const darknet_ros_msgs::BoundingBoxes::ConstPtr& msg)
-{
+{  
   ros::NodeHandle n;
   cam_angle::pixel srv;
   ros::ServiceClient client = n.serviceClient<cam_angle::pixel>("pixel_server");
-
- size = msg->bounding_boxes.size();
- actual_size = size-1;
-cout << size << endl;
-
- if (size == 0)
+// while(1)
+//{
+ //size = msg->bounding_boxes.size();
+ //cout << size << endl;
+ //actual_size = size-1;
+ cout << "SIZE" << "     " <<  msg->bounding_boxes.size() << endl;
+ if (msg->bounding_boxes.size() == 0)
   cout << "Nothing in sight" << endl;
 
-  if (size > 0 ) 
-  {
-	
-    for (int i = 0; i <= actual_size; i++)
+ // while (msg->bounding_boxes.size() > 0 ) 
+  //{
+  
+ 
+
+
+ 
+
+    for (int i = 0; i < msg->bounding_boxes.size() ; i++)
     {
 
-    	//cout << "x min:"<<  msg->bounding_boxes[i].xmin << endl;
-    	//cout << "x max:"<<msg->bounding_boxes[i].xmax << endl;
-        //cout << "y min:" <<msg->bounding_boxes[i].ymin << endl;
-    	//cout << "y max:"  <<msg->bounding_boxes[i].ymax << endl; 
+    	cout << "x min for box:"<<i << "     "  << msg->bounding_boxes[i].xmin << endl;
+    	cout << "x max for box:"<<i << "     " << msg->bounding_boxes[i].xmax << endl;
+        cout << "y min for box:" <<i << "     " << msg->bounding_boxes[i].ymin << endl;
+    	cout << "y max for box:"  <<i << "     " << msg->bounding_boxes[i].ymax << endl; 
 
 	xmax = msg->bounding_boxes[i].xmax;
         xmin = msg->bounding_boxes[i].xmin;
@@ -49,8 +55,6 @@ cout << size << endl;
 
 	xavg = (xmax+xmin)/2;
 	yavg =(ymax+ymin)/2;
-
-	cout << xavg << endl;
 
         srv.request.x = xmax;
 
@@ -64,28 +68,35 @@ cout << size << endl;
 		srv.response.angle = 360 - srv.response.angle;
 
 
-     if (getchar() == 'g')
-{
-    if(client.call(srv))
-  {  
-    //clientPtr->call(srv);
+    // if (getchar() == 'g')
+//{
+   // if(client.call(srv))
+  //{ 
+//ros::Duration five_seconds(5.0); 
+     client.call(srv);
+   // clientPtr->call(srv);
   
     ROS_INFO("Angle: %f", (float)srv.response.angle);
-    break;
+    //break;
   
   
-  } 
+  //} 
 
-}
+
+//}
+//else continue ;
+
    
 
 
-    } //for loop end
+   } //for loop end
 
  
-  } // if statement end
+  //} // while statement end
 
 } // function end
+
+//}
 
 int main(int argc, char **argv)
 {
@@ -94,7 +105,7 @@ int main(int argc, char **argv)
 
   ros::NodeHandle n;
 
-  cam_angle::pixel srv;
+ // cam_angle::pixel srv;
 
   ros::Subscriber boxes_sub = n.subscribe("darknet_ros/bounding_boxes", 1000, boxesCallback);
 

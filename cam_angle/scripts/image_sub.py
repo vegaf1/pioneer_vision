@@ -80,6 +80,9 @@ def cam_angle(req):
 
         deg_angle = angle * 180 / pi 
 
+	if req.x< 320:
+		deg_angle = 360 - deg_angle 
+
         print ("[x: %s   y: %s]"%(req.x, req.y))
 
 	return pixelResponse(deg_angle)

@@ -31,7 +31,7 @@ void LaserCallback(const sensor_msgs::LaserScan::ConstPtr& scan){
 
 	cout << "ANGLE  " <<  angle << endl;
 
-	cout << "LSR VALUE   " <<value << endl; 
+	cout << "LSR VALUE   " << value <<  endl; 
 
         cout << "DISTANCE     " <<  scan->ranges[value]; //are laser readings
 
@@ -102,6 +102,8 @@ void boxesCallback(const darknet_ros_msgs::BoundingBoxes::ConstPtr& msg)
 
 	xavg = (xmax+xmin)/2;
 	yavg =(ymax+ymin)/2;
+
+
 
         srv.request.x = xavg;
 

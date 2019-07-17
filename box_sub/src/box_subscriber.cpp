@@ -103,7 +103,7 @@ void boxesCallback(const darknet_ros_msgs::BoundingBoxes::ConstPtr& msg)
 	xavg = (xmax+xmin)/2;
 	yavg =(ymax+ymin)/2;
 
-        srv.request.x = xmax;
+        srv.request.x = xavg;
 
        // cout << xmax << endl; 
 

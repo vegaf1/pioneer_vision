@@ -13,6 +13,8 @@ rospy
 std_msgs
 geometry_msgs
 darknet_ros
+visualization_msgs
+sensor_msgs
 message_generation
 )
 

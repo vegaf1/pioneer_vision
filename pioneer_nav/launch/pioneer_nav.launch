@@ -8,7 +8,7 @@
   <arg name="map" default="test_map.yaml" />
 
   <!-- Run the map server with the desired map -->
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find rbx1_nav)/maps/$(arg map)"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find pioneer_nav)/maps/$(arg map)"/>
 
   <!-- Start move_base  -->
   <include file="$(find pioneer_nav)/launch/pioneer_move_base.launch" />

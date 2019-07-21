@@ -59,7 +59,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate services in the 'srv' folder
  add_service_files(
    FILES
-    laser.srv
+    rplidar.srv
 #   Service2.srv
  )
 

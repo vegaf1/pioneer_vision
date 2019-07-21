@@ -69,18 +69,18 @@ def cam_angle(req):
 
 
 
-        w = np.linalg.norm(center) #magnitude of the vectors
+        w = np.linalg.norm(center) #magnitude of center vector
 
 
-        z = np.linalg.norm(pixel)
+        z = np.linalg.norm(pixel) #magnitude of vector from the center(start) to the pixel position (end)
 
     
 
-        angle = math.acos(dot/(w*z)) #dot product formula
+        angle = math.acos(dot/(w*z)) #dot product formula to calculate the angle between the vectors
 
-        deg_angle = angle * 180 / pi 
+        deg_angle = angle * 180 / pi #convert to degrees
 
-	if req.x< 320:
+	if req.x< 320: #correspond to the left side of the circle
 		deg_angle = 360 - deg_angle 
 
         print ("[x: %s   y: %s]"%(req.x, req.y))

@@ -17,8 +17,8 @@ char ch;
 int size, actual_size, new_size;
 int xmax,xmin,ymax,ymin, xavg, yavg;
 ros::ServiceClient *clientPtr; //pointer for a client
-int angle;
-int value;
+int angle; //initial angle offset from center of the camera 
+int value; //angle relative to laser scanner
 
 ros::Publisher vis_pub;
 
@@ -33,11 +33,11 @@ void LaserCallback(const sensor_msgs::LaserScan::ConstPtr& scan){
 
 	cout << "LSR VALUE   " << value <<  endl; 
 
-        cout << "DISTANCE     " <<  scan->ranges[value]; //are laser readings
+        cout << "DISTANCE     " <<  scan->ranges[value]; // laser readings
 
 	//ros::Publisher vis_pub = n.advertise<visualization_msgs::Marker>( "yolo_marker", 0 );
 
-	visualization_msgs::Marker marker;
+	visualization_msgs::Marker marker; // Marker parameters
 	marker.header.frame_id = "laser";
 	marker.header.stamp = ros::Time();
 	marker.ns = "my_namespace";
@@ -60,7 +60,7 @@ void LaserCallback(const sensor_msgs::LaserScan::ConstPtr& scan){
 	marker.color.b = 0.0;
 	//only if using a MESH_RESOURCE marker type:
 	marker.mesh_resource = "package://pr2_description/meshes/base_v0/base.dae";
-	vis_pub.publish(marker);
+	vis_pub.publish(marker); // publish the markers
 
     
 }
@@ -69,7 +69,7 @@ void boxesCallback(const darknet_ros_msgs::BoundingBoxes::ConstPtr& msg)
 {  
   ros::NodeHandle n;
   cam_angle::pixel srv;
-  ros::ServiceClient client = n.serviceClient<cam_angle::pixel>("pixel_server");
+  ros::ServiceClient client = n.serviceClient<cam_angle::pixel>("pixel_server"); // initialize the client
 // while(1)
 //{angle
  //size = msg->bounding_boxes.size();
@@ -122,8 +122,8 @@ void boxesCallback(const darknet_ros_msgs::BoundingBoxes::ConstPtr& msg)
    // if(client.call(srv))
   //{ 
 //ros::Duration five_seconds(5.0); 
-     client.call(srv);
-   // clientPtr->call(srv);
+     client.call(srv); // whenever a box is found, the client is called
+   // clientPtr->call(srv); 
   
     ROS_INFO("Angle: %f", (float)srv.response.angle);
     angle = srv.response.angle;

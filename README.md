@@ -11,8 +11,9 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
-Darknet_ros
-```
+leggedrobotics/darknet_ros
+angusleigh/leg_tracker
+rplidar_ros
 
 ### Installing
 
@@ -33,7 +34,7 @@ Follow the instructions below:
 ```
 roslaunch usb_cam usb_cam-test.launch
 roslaunch darknet_ros yolo_v3_custom.launch
-roslaunch cam_angle image_sub.py
+rosrun cam_angle image_sub.py
 rosrun box_sub box_subscriber
 ```
 

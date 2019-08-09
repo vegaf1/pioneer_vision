@@ -56,6 +56,11 @@ Make sure laser is USB 0 and the USB to serial cable from the pioneer is USB1. A
 * chmod a+rw /dev/ttyUSB0
 * chmod a+rw /dev/ttyUSB1
 
+In order to make a map
+* roslaunch teleop_twist_joy teleop.launch (Press the LB  and the arrow keys in order to move the robot around)
+* roslaunch gmapping slam_gmapping_pr2.launch
+
+
 ```
 
 ## Authors

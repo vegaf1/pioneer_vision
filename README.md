@@ -11,11 +11,28 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
-leggedrobotics/darknet_ros
-angusleigh/leg_tracker
-rplidar_ros
+*leggedrobotics/darknet_ros
+*angusleigh/leg_tracker
+*rplidar_ros
+*rosaria
 
 ### Installing
+
+All their packages can be installed from their github repos.
+
+When installing rosaria:
+
+Install libaria: header files 
+
+https://web.archive.org/web/20180205212122/http://robots.mobilerobots.com/wiki/Aria
+
+This is the archive. Download based on the description of your machine. 
+
+Then do a git clone of the rosaria pacakge (linked below)
+
+https://github.com/amor-ros-pkg/rosaria
+
+Need to be done in this order
 
 ```
 TBD

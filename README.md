@@ -47,14 +47,14 @@ To launch the picture frame localization: run the following commands...
 
 To launch the P3DX Navigation ...
 
-*roslaunch pioneer_nav pioneer_nav.launch 
-*rosrun rosaria Rosaria 
-*roslaunch p3dx_description rviz.launch      
+* roslaunch pioneer_nav pioneer_nav.launch 
+* rosrun rosaria Rosaria 
+* roslaunch p3dx_description rviz.launch      
 
 Make sure laser is USB 0 and the USB to serial cable from the pioneer is USB1. Always configure it using:
 
-*chmod a+rw /dev/ttyUSB0
-*chmod a+rw /dev/ttyUSB1
+* chmod a+rw /dev/ttyUSB0
+* chmod a+rw /dev/ttyUSB1
 
 ```
 

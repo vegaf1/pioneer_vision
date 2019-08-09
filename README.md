@@ -34,16 +34,6 @@ https://github.com/amor-ros-pkg/rosaria
 
 Need to be done in this order
 
-```
-TBD
-```
-
-```
-TBD
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
 ## Running
 
 Follow the instructions below:
@@ -54,6 +44,18 @@ To launch the picture frame localization: run the following commands...
 * roslaunch darknet_ros yolo_v3_custom.launch
 * rosrun cam_angle image_sub.py
 * rosrun box_sub box_subscriber
+
+To launch the P3DX Navigation ...
+
+*roslaunch pioneer_nav pioneer_nav.launch 
+*rosrun rosaria Rosaria 
+*roslaunch p3dx_description rviz.launch      
+
+Make sure laser is USB 0 and the USB to serial cable from the pioneer is USB1. Always configure it using:
+
+*chmod a+rw /dev/ttyUSB0
+*chmod a+rw /dev/ttyUSB1
+
 ```
 
 ## Authors

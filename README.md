@@ -32,10 +32,11 @@ End with an example of getting some data out of the system or using it for a lit
 Follow the instructions below:
 
 ```
-roslaunch usb_cam usb_cam-test.launch
-roslaunch darknet_ros yolo_v3_custom.launch
-rosrun cam_angle image_sub.py
-rosrun box_sub box_subscriber
+To launch the picture frame localization: run the following commands...
+* **roslaunch usb_cam usb_cam-test.launch
+* **roslaunch darknet_ros yolo_v3_custom.launch
+* **rosrun cam_angle image_sub.py
+* **rosrun box_sub box_subscriber
 ```
 
 ## Authors

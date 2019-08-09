@@ -33,10 +33,10 @@ Follow the instructions below:
 
 ```
 To launch the picture frame localization: run the following commands...
-* **roslaunch usb_cam usb_cam-test.launch
-* **roslaunch darknet_ros yolo_v3_custom.launch
-* **rosrun cam_angle image_sub.py
-* **rosrun box_sub box_subscriber
+* roslaunch usb_cam usb_cam-test.launch
+* roslaunch darknet_ros yolo_v3_custom.launch
+* rosrun cam_angle image_sub.py
+* rosrun box_sub box_subscriber
 ```
 
 ## Authors
